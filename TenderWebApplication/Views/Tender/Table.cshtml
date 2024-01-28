@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TenderWebApplication.Models.Tender>
+
+@{
+    ViewData["Title"] = "Table";
+}
+
+<h1>Tenders</h1>
+
+<div>
+    <a asp-action="Index">Back to Index</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название тендера</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>URL тендерной площадки</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => 
+                        item.DateBegin.ToShortDateString())
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => 
+                        item.DateEnd.ToShortDateString())
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
