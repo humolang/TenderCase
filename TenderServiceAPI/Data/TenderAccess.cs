@@ -62,19 +62,10 @@ namespace TenderServiceAPI.Data
         {
             Tender tender = new Tender();
 
-            tender.Name = row["Название тендера"]
-                .ToString();
-
-            tender.DateBegin = Convert
-                .ToDateTime(row["Дата начала"])
-                .ToUniversalTime().Ticks;
-
-            tender.DateEnd = Convert
-                .ToDateTime(row["Дата окончания"])
-                .ToUniversalTime().Ticks;
-
-            tender.Url = row["URL тендерной площадки"]
-                .ToString();
+            tender.Name = row["Название тендера"].ToString();
+            tender.DateBegin = Convert.ToDateTime(row["Дата начала"]);
+            tender.DateEnd = Convert.ToDateTime(row["Дата окончания"]);
+            tender.Url = row["URL тендерной площадки"].ToString();
 
             return tender;
         }

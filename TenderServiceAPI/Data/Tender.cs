@@ -3,8 +3,8 @@
     public class Tender
     {
         public string? Name { get; set; }
-        public long DateBegin { get; set; }
-        public long DateEnd { get; set; }
+        public DateTime DateBegin { get; set; }
+        public DateTime DateEnd { get; set; }
         public string? Url { get; set; }
     }
 }
