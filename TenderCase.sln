@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenderServiceAPI", "TenderServiceAPI\TenderServiceAPI.csproj", "{845BDEB4-1409-4F34-907B-93C929A05AA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{845BDEB4-1409-4F34-907B-93C929A05AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845BDEB4-1409-4F34-907B-93C929A05AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845BDEB4-1409-4F34-907B-93C929A05AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845BDEB4-1409-4F34-907B-93C929A05AA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12C10A95-4DE0-4919-9CCE-3AB9E7C9A164}
+	EndGlobalSection
+EndGlobal
