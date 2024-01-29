@@ -3,11 +3,15 @@ using System.Data.OleDb;
 
 namespace TenderServiceAPI.Data
 {
+    // Класс доступа к данным (чтения из xls-файла)
     public class TenderAccess
     {
+        // В LastModified хранится время последнего изменения xls-файла
         private long LastModified;
+        // Список для хранения всех прочтенных тендеров
         private List<Tender> Tenders = new List<Tender>();
 
+        // Метод для чтения из xls-файла
         public List<Tender> GetTenders(string? connectionString)
         {
             if (connectionString == null) 
@@ -25,9 +29,15 @@ namespace TenderServiceAPI.Data
                     null
                     ) ?? throw new NullReferenceException();
 
+                // Получение времени последнего изменения файла
                 long lastModified = ((DateTime)schemaTable.Rows[0][7])
                     .ToUniversalTime().Ticks;
 
+                // Если файл был изменен,
+                // то из него будут заново получены данные
+                // и метод вернет обновленный список тендеров.
+                // В противном случае ничего не произойдет,
+                // метод вернет список тендеров, считанный в предыдущий раз.
                 if (lastModified > LastModified)
                 {
                     LastModified = lastModified;
@@ -58,6 +68,7 @@ namespace TenderServiceAPI.Data
             return Tenders;
         }
 
+        // Создание объекта tender с данными из прочтенной строки
         private Tender CreateTender(DataRow row)
         {
             Tender tender = new Tender();

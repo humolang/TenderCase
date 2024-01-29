@@ -1,7 +1,8 @@
-namespace TenderWebApplication
+﻿namespace TenderWebApplication
 {
     public class Program
     {
+        // HTTP-клиент для соединения с TenderServiceAPI
         public static HttpClient HttpClient { get; } = 
             new HttpClient();
 
@@ -10,6 +11,7 @@ namespace TenderWebApplication
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
 
+            // Извлечения адреса TenderServiceAPI из конфигурации веб-приложения
             string baseAddress = builder.Configuration
                 .GetConnectionString("TenderServiceURL") ?? "";
             HttpClient.BaseAddress = new Uri(baseAddress);

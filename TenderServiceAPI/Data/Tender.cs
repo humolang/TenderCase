@@ -1,5 +1,6 @@
 ﻿namespace TenderServiceAPI.Data
 {
+    // Data-класс для хранения информации о тендере
     public class Tender
     {
         public string? Name { get; set; }

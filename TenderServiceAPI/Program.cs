@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using TenderServiceAPI.Data;
 
@@ -11,6 +11,7 @@ namespace TenderServiceAPI
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
 
+            // Извлечение строки подключения к xls-файлу
             string? connectionString = builder.Configuration
                 .GetConnectionString("TenderXLS");
             TenderAccess tenderAccess = new TenderAccess();
@@ -23,6 +24,9 @@ namespace TenderServiceAPI
             app.Run();
         }
 
+        // Чтение xls-файла,
+        // сериализация полученных объектов
+        // и отправка списка тендеров json-файлом
         private static IResult GetTenders(
             string? connectionString, 
             TenderAccess tenderAccess

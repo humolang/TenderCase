@@ -11,16 +11,11 @@ namespace TenderWebApplication.Controllers
             return View();
         }
 
+        // В методе http-клиент совершает запрос по заданному эндпоинту
+        // и возвращает результат как json-строку.
+        // Json-строка десериализуется в список из объектов tender
+        // и передается в представление Table.
         public async Task<IActionResult> Table()
-        {
-            string json = await GetTendersJson();
-            List<Tender> tenders = JsonSerializer
-            .Deserialize<List<Tender>>(json) ?? new List<Tender>();
-
-            return View(tenders);
-        }
-
-        private async Task<string> GetTendersJson()
         {
             using HttpResponseMessage response =
                 await Program.HttpClient.GetAsync("/tenders");
@@ -28,7 +23,10 @@ namespace TenderWebApplication.Controllers
             string json = await response
                 .Content.ReadAsStringAsync();
 
-            return json;
+            List<Tender> tenders = JsonSerializer
+                .Deserialize<List<Tender>>(json) ?? new List<Tender>();
+
+            return View(tenders);
         }
     }
 }
