@@ -4,10 +4,10 @@
     ViewData["Title"] = "Table";
 }
 
-<h1>Tenders</h1>
+<h1>Таблица тендеров</h1>
 
 <div>
-    <a asp-action="Index">Back to Index</a>
+    <a asp-action="Index">Назад</a>
 </div>
 
 <table class="table">
@@ -28,12 +28,10 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => 
-                        item.DateBegin.ToShortDateString())
+                    @Html.DisplayFor(modelItem => item.DateBegin)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => 
-                        item.DateEnd.ToShortDateString())
+                    @Html.DisplayFor(modelItem => item.DateEnd)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Url)
